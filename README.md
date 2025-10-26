@@ -1,74 +1,134 @@
-# React + TypeScript + Vite
+Kendall Manager Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and modern task management dashboard built with React, TypeScript, and Tailwind CSS.
+The application supports user authentication, session expiry, protected routes, and responsive layouts optimized for desktop and mobile.
 
-Currently, two official plugins are available:
+Features
+Authentication System
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sign up and log in using local storage
 
-## React Compiler
+Session tokens with 1-hour expiry
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Inline password validation (uppercase, lowercase, number, symbol, and minimum 8 characters)
 
-## Expanding the ESLint configuration
+Real-time password confirmation validation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Protected Routes
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Access to Dashboard and Manage Tickets only when logged in
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Auto-redirect to login when session expires
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clear error message: “Your session has expired — please log in again.”
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+UI Components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Responsive Navbar with logo, navigation links, and login CTA
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# Kendall-react
+Footer aligned properly on all screen sizes
+
+Adaptive layouts for mobile, tablet, and desktop
+
+Error Handling
+
+Network error fallback component
+
+Toast notifications for success and error messages
+
+Tech Stack
+Category	Technologies
+Frontend	React, TypeScript, Vite
+Styling	Tailwind CSS
+Notifications	react-hot-toast
+Routing	react-router-dom v6
+
+Project Structure
+src/
+├── components/
+│   ├── Button.tsx
+│   ├── Footer.tsx
+│   ├── Input.tsx
+│   ├── Navbar.tsx
+│   └── NetworkError.tsx
+│
+├── pages/
+│   ├── Login.tsx
+│   ├── Signup.tsx
+│   ├── Dashboard.tsx
+│   └── Tickets.tsx
+│
+├── routes/
+│   └── ProtectedRoute.tsx
+│
+├── utils/
+│   ├── auth.ts
+│   └── validation.ts
+│
+├── App.tsx
+└── main.tsx
+
+Installation & Setup
+1. Clone the Repository
+git clone https://github.com/<your-username>/kendall-manager-pro.git
+cd kendall-manager-pro
+
+2. Install Dependencies
+npm install
+
+3. Start the Development Server
+npm run dev
+
+
+Then open your browser and go to:
+
+http://localhost:5173
+
+Authentication Workflow
+Action	Description
+Signup	User registers with email and password. Credentials are saved to local storage.
+Login	Email and password are verified. A session token with a 1-hour expiry is set.
+Protected Routes	If session is missing or expired, user is redirected to login.
+Logout	Clears session data from local storage.
+
+Password Validation Rules
+A valid password must:
+
+Contain at least 8 characters
+
+Include one uppercase letter
+
+Include one lowercase letter
+
+Include one number
+
+Include one special symbol (!@#$%^&*, etc.)
+
+Match the confirm password field
+
+Inline error messages clearly show missing requirements.
+
+Navigation Behavior
+Device	Behavior
+Desktop (≥768px)	Displays logo, navigation links, and CTA login button
+Mobile (<768px)	Displays logo and hamburger menu; navigation links slide down when toggled
+Responsive Footer Behavior
+
+On large screens: fixed at the bottom of the page
+
+On smaller screens (e.g., iPad): remains pinned using a flex layout (min-h-screen structure)
+
+Common Issues & Fixes
+Issue	Cause	Solution
+Session expired message appears immediately	Expiry timestamp is invalid or expired	Clear local storage and log in again
+Mobile menu toggle works but links not visible	Text or background color conflict	Ensure bg-white and visible text colors (e.g., text-blue-600)
+Footer not sticking to bottom	Missing parent min-h-screen + flex flex-col	Wrap layout with these classes in App.tsx
+Build for Production
+npm run build
+
+
+The production-ready files will be in the dist/ directory.
+
+To preview the production build locally:
+
+npm run preview
