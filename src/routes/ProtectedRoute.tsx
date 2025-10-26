@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const [isActive, setIsActive] = useState<boolean | null>(null); // null = loading
+  const [isActive, setIsActive] = useState<boolean | null>(null);
 
   useEffect(() => {
     const session = localStorage.getItem("kendall_manager_pro_session");
@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
       localStorage.removeItem("kendall_manager_pro_session");
       localStorage.removeItem("kendall_manager_pro_session_expiry");
 
-      toast.error("Your session has expired — please log in again.");
+      toast.error("Your session has expired, please log in again.");
       setIsActive(false);
     } else {
       setIsActive(true);

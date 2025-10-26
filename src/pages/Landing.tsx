@@ -23,7 +23,7 @@ const Landing = () => {
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-400 via-indigo-400 to-blue-700 relative overflow-hidden flex flex-col items-center">
       {/* hero section */}
       <section className="relative w-full flex flex-col items-center justify-center text-center py-24 px-6 md:py-32 md:px-8">
-        {/* Decorative circles that blend with background */}
+        {/* Decorative circles */}
         <div className="hidden md:block absolute top-16 left-10 w-40 h-40 bg-white rounded-full blur-3xl z-0"></div>
         <div className="hidden md:block absolute top-1/3 right-20 w-40 h-52 bg-white rounded-full blur-3xl z-0"></div>
 

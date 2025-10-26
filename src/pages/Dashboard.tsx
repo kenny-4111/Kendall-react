@@ -49,7 +49,6 @@ const Dashboard = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-100 via-blue-300 to-blue-500 flex flex-col items-center justify-center p-4 overflow-hidden">
-      {/* ===== Decorative Circles (Soft Glow Effect) ===== */}
       {/* Top-left decorative circle */}
       <div className="absolute top-16 left-10 w-40 h-40 bg-white/70 rounded-full blur-3xl z-0"></div>
 
@@ -59,7 +58,7 @@ const Dashboard = () => {
       {/* Bottom-right decorative circle */}
       <div className="absolute bottom-16 right-24 w-28 h-28 bg-white/50 rounded-full blur-2xl z-0"></div>
 
-      {/* ===== Main Dashboard Card ===== */}
+      {/* Main Dashboard Card */}
       <div className="relative w-full max-w-2xl bg-white rounded-xl shadow-lg p-8 flex flex-col gap-8 z-10">
         <header className="flex items-center justify-between mb-6">
           <h1 className="text-3xl font-bold text-blue-700">Dashboard</h1>

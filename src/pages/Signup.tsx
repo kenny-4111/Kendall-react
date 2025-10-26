@@ -69,7 +69,6 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-between bg-gray-50">
-      {/* App Title */}
       <header className="text-center py-6">
         <h1 className="text-3xl font-bold text-blue-600 tracking-wide">
           Kendall Manager Pro
